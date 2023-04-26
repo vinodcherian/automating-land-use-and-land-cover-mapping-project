@@ -52,8 +52,6 @@ HEADER_STYLE=f"""<style>
     """
 
 
-
-   
 PAGE_TITLE="Automating Land Use and Land Cover Mapping Using Computer Vision and Satellite Imagery"
 
 HOMEPAGE_CONTENT='''
@@ -75,21 +73,6 @@ The goals of this project are:
 + Documentation of the work and approach.
 ''' 
 
-HOMEPAGE_CHAPTERLEAD='''
-| Chapter Name | Lead Name |
-|--|--|
-| Cameroon Chapter Leads | Younkap Nina Duplex |
-'''
-
-HOMEPAGE_ACTIVE_CONTRIBUTORS='''
-| Task Name | Active Contributors |
-|--|--|
-| Data Collection and Selection | - |
-| Data Preprocessing and Visualization | - |
-| Model Development and Training | - |
-| Model Deployment and Dashboard | - |
-'''
-
 st.set_page_config(
     page_title="Automating Land Use and Land Cover Mapping Using Computer Vision and Satellite Imagery",
     page_icon="🧊",
@@ -109,6 +92,3 @@ with st.container():
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(HOMEPAGE_CONTENT, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(HOMEPAGE_CHAPTERLEAD, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(HOMEPAGE_ACTIVE_CONTRIBUTORS, unsafe_allow_html=True)
