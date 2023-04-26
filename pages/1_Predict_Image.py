@@ -50,7 +50,7 @@ satellite_input_image_obj=Image.open(os.path.abspath('./Models/satellite_input_i
 image_comparision_right_image_obj=Image.open(os.path.abspath('./Models/image_comparision_right_image.png'))
 predicted_image_from_input_obj=Image.open(os.path.abspath('./Models/predicted_image_from_input.png'))
 image_comparision_left_image_obj=Image.open(os.path.abspath('./Models/image_comparision_left_image.png'))
-image_with_class_label_obj=Image.open(os.path.abspath('./Models/image_with_class_labelImage.png'))
+image_with_class_label_obj=Image.open(os.path.abspath('./Models/image_with_class_label.png'))
 
 st.markdown(HEADER_STYLE, unsafe_allow_html=True)
 st.divider()
