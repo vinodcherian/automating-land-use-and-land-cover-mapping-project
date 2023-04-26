@@ -46,11 +46,11 @@ def modelpredict(model, upload_image_obj):
 
 model_obj = get_model(os.path.abspath(MODEL_PATH))
 
-satellite_input_image_obj=Image.open(os.path.abspath('./Models/satellite_input_image.PNG'))
-image_comparision_right_image_obj=Image.open(os.path.abspath('./Models/image_comparision_right_image.PNG'))
-predicted_image_from_input_obj=Image.open(os.path.abspath('./Models/predicted_image_from_input.PNG'))
-image_comparision_left_image_obj=Image.open(os.path.abspath('./Models/image_comparision_left_image.PNG'))
-image_with_class_label_obj=Image.open(os.path.abspath('./Models/image_with_class_labelImage'))
+satellite_input_image_obj=Image.open(os.path.abspath('./Models/satellite_input_image.png'))
+image_comparision_right_image_obj=Image.open(os.path.abspath('./Models/image_comparision_right_image.png'))
+predicted_image_from_input_obj=Image.open(os.path.abspath('./Models/predicted_image_from_input.png'))
+image_comparision_left_image_obj=Image.open(os.path.abspath('./Models/image_comparision_left_image.png'))
+image_with_class_label_obj=Image.open(os.path.abspath('./Models/image_with_class_labelImage.png'))
 
 st.markdown(HEADER_STYLE, unsafe_allow_html=True)
 st.divider()
