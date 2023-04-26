@@ -45,13 +45,22 @@ def modelpredict(model, upload_image_obj):
   return img_arr
 
 model_obj = get_model(os.path.abspath(MODEL_PATH))
+
+satellite_input_image_obj=Image.open(os.path.abspath('.Models/satellite_input_image.PNG'))
+image_comparision_right_image_obj=Image.open(os.path.abspath('.Models/image_comparision_right_image.PNG'))
+predicted_image_from_input_obj=Image.open(os.path.abspath('.Models/predicted_image_from_input.PNG'))
+image_comparision_left_image_obj=Image.open(os.path.abspath('.Models/image_comparision_left_image.PNG'))
+image_with_class_label_obj=Image.open(os.path.abspath('.Models/image_with_class_labelImage'))
+
 st.markdown(HEADER_STYLE, unsafe_allow_html=True)
 st.divider()
 st.sidebar.markdown("### Upload a ROI Image of Format(jpeg,jpg,png): ")
 uploaded_image_file = st.sidebar.file_uploader("", type=ALLOWED_EXTENSIONS)
 if uploaded_image_file is not None:
-  uploaded_image_filename=uploaded_image_file.name
-  imageobj=Image.open(uploaded_image_file)
+
+  #uploaded_image_filename=uploaded_image_file.name
+  #imageobj=Image.open(uploaded_image_file)
+  imageobj=satellite_input_image_obj
   #model_predict_result=modelpredict()
   col1, col2 = st.columns([6,6], gap="small")
   with col1:
@@ -59,13 +68,19 @@ if uploaded_image_file is not None:
     st.image(imageobj,width=WIDTH)  #300 #640
   with col2:
     st.markdown('### **Predict uploaded image**',unsafe_allow_html=True)
-    st.image(imageobj, width=WIDTH) 
+    st.image(predicted_image_from_input_obj, width=WIDTH) 
   st.info('## The predicted model accuracy for the uploaded image is 53%')
   st.markdown("<br>", unsafe_allow_html=True)
   image_comparison(
-    img1="https://www.webbcompare.com/img/hubble/deep_field_700.jpg",
-    img2="https://www.webbcompare.com/img/webb/deep_field_700.jpg",
-    label1="Hubble",
-    label2="Webb",
-  )
+    img1=image_comparision_left_image_obj,
+    img2=image_comparision_right_image_obj,
+    label1="Original Image",
+    label2="Label Classes",
+    width=700,
+    starting_position=50,
+    show_labels=True,
+    make_responsive=True,
+    in_memory=True,
+)
+  st.image(image_with_class_label_obj, width=500) 
   #st.plotly_chart(bar_chart_fig)
