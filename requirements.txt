@@ -1,4 +1,5 @@
 gdal
+osgeo
 streamlit
 streamlit-image-comparison
 pillow
