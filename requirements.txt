@@ -1,7 +1,7 @@
-pygeos
-gdal
 streamlit
 streamlit-image-comparison
+gdal
+pygeos
 pillow
 matplotlib
 tensorflow
