@@ -54,6 +54,7 @@ def about_project_style():
 <style>
 button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
   font-size: 24px;
+  padding: 0px 20px;
   background-color: rgb(240, 242, 246);
 }
 </style>
