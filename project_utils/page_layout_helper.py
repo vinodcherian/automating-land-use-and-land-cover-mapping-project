@@ -9,6 +9,25 @@ PROFILE_IMAGE="https://omdena.com/wp-content/uploads/2023/01/Douala-Cameroon-Cha
 
 BACKGROUND_IMAGE="https://omdena.com/wp-content/uploads/2023/01/Automating-Land-Use-and-Land-Cover-Mapping-Using-Computer-Vision-and-Satellite-Imagery-480x251.png"
 
+PAGE_TITLE="Automating Land Use and Land Cover Mapping Using Computer Vision and Satellite Imagery"
+
+FOOTER_TEXT=f"Project by Omdena Cameroon Chapter - {date.today().year}"
+
+def get_page_title_id():
+  s = re.sub(r"[^\w\s]", '', PAGE_TITLE)
+  s = re.sub(r'\[\[(?:[^\]|]*\|)?([^\]|]*)\]\]', r'\1', s)
+  s = re.sub(r"\s+", '-', s)
+  return s.lower()
+
+
+def get_page_title():
+  return PAGE_TITLE
+
+def set_page_title():
+  st.set_page_config(
+    page_title=get_page_title()
+)
+
 
 HEADER_STYLE=f"""<style>
 	    [data-testid="stToolbar"]{{
@@ -32,10 +51,10 @@ HEADER_STYLE=f"""<style>
             background-size: cover; 
             background-position: center;
             }}
-            #automating-land-use-and-land-cover-mapping-using-computer-vision-and-satellite-imagery{{
+            #{get_page_title_id()}{{
             height: 250px;
             }}
-            #automating-land-use-and-land-cover-mapping-using-computer-vision-and-satellite-imagery > div {{
+            #{get_page_title_id()} > div {{
             bottom: 1%;
             position: absolute;
             color: white;
@@ -47,22 +66,10 @@ HEADER_STYLE=f"""<style>
             footer:before {{
             visibility: visible;
             position: relative;
-	          content: "Project by Omdena Cameroon Chapter - {date.today().year}"
+	    content: {FOOTER_TEXT}
             }}
         </style>
     """
-
-
-PAGE_TITLE="Automating Land Use and Land Cover Mapping Using Computer Vision and Satellite Imagery"
-
-
-def get_page_title():
-  return PAGE_TITLE
-
-def set_page_title():
-  st.set_page_config(
-    page_title=get_page_title()
-)
 
 def set_page_settings():
   st.set_page_config(
