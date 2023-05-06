@@ -1,6 +1,6 @@
 
 import streamlit as st
-from project_utils.azure_blob_storage_helper
+#from project_utils.azure_blob_storage_helper import get_file_gdrive, fetch_model, gdal_uploaded_image_array, model_result, image_to_rgb, predicted_image_with_class_label
 
 option = st.selectbox(
     'Please select the ROI region option to download the files : ',
