@@ -1,4 +1,3 @@
-
 import streamlit as st
 import os
 import io
@@ -7,80 +6,78 @@ import glob as glob
 import pandas as pd
 import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
 import base64
 from streamlit_image_comparison import image_comparison
+from project_utils.page_layout_helper import  main_header
+from project_utils.project_helpers import gdal_uploaded_image_array, fetch_model, image_to_rgb, model_result, predicted_image_with_class_label
+ 
+ALLOWED_EXTENSIONS = [".tiff"]
 
-MODEL_PATH = './Models/'
+MODEL_PATH='./Model/TRAINED_MODEL_5.hdf5'
 
-ALLOWED_EXTENSIONS = ["jpg","jpeg","png"]
+WIDTH=256
 
-
-WIDTH=300
-
-HEIGHT=300
+HEIGHT=256
 
 
-HEADER_STYLE=f"""<style>
- 	    [data-testid="stToolbar"]{{
-	    visibility: hidden;
-	    }}
-            footer {{
-            visibility: hidden;
-            position: relative;
-            }}
-            footer:before {{
-            visibility: visible;
-            position: relative;
-	          content: "Project by Omdena Cameroon Chapter - {date.today().year}"
-            }}
-        </style>
-    """
-
-@st.cache_resource
+@st.cache_resource(show_spinner="Please wait for Model to Load...")
 def get_model(path):
-  return path
+  return fetch_model(path)
 
 def modelpredict(model, upload_image_obj):
-  img_arr = np.array(upload_image_obj) 
-  return img_arr
+  return model_result(model, upload_image_obj)
 
-model_obj = get_model(os.path.abspath(MODEL_PATH))
+def page_sidebar():
+  st.divider()
+  st.sidebar.subheader("Upload a ROI Image of Format(.tif) of resolution (256x256) : ")
+  #st.sidebar.subheader.markdown("### Upload a ROI Image of Format(.tif) of resolution (256x256) : ")
+  return st.sidebar.file_uploader("", type=ALLOWED_EXTENSIONS)
 
-satellite_input_image_obj=Image.open(os.path.abspath('./Models/satellite_input_image.png'))
-image_comparision_right_image_obj=Image.open(os.path.abspath('./Models/image_comparision_right_image.png'))
-predicted_image_from_input_obj=Image.open(os.path.abspath('./Models/predicted_image_from_input.png'))
-image_comparision_left_image_obj=Image.open(os.path.abspath('./Models/image_comparision_left_image.png'))
-image_with_class_label_obj=Image.open(os.path.abspath('./Models/image_with_class_label.png'))
 
-st.markdown(HEADER_STYLE, unsafe_allow_html=True)
-st.divider()
-st.sidebar.markdown("### Upload a ROI Image of Format(jpeg,jpg,png): ")
-uploaded_image_file = st.sidebar.file_uploader("", type=ALLOWED_EXTENSIONS)
-if uploaded_image_file is not None:
+def main():
+  main_header()
+  uploaded_file =page_sidebar()
+  model_obj = get_model(os.path.abspath(MODEL_PATH))
+  with st.container():
+    if uploaded_file is not None:
+      #st.write(np.moveaxis((uploaded_file.getvalue()), 0, -1))
+      #st.write(io.StringIO(uploaded_file.getvalue().decode("utf-8")).read())
+      #satellite_input_imageobj=Image.open(io.BytesIO(uploaded_file.getvalue()))
+      #satellite_input_imageobj=np.array(uploaded_file.getvalue())#.decode("utf-8").read() #Image.open(uploaded_file)
+      satellite_input_imageobj=gdal_uploaded_image_array(uploaded_file)
+      model_predict_result=modelpredict(model_obj,satellite_input_imageobj)
+      col1, col2 = st.columns([6,6], gap="small")
+      with col1:
+        st.markdown('### **Uploaded Satellite Image**',unsafe_allow_html=True)
+        st.image(satellite_input_imageobj,width=WIDTH)  #300 #640
+      with col2:
+        st.markdown('### **Predicted Image**',unsafe_allow_html=True)
+        st.image(image_to_rgb(model_predict_result), width=WIDTH) 
+      #st.info('## The predicted model accuracy for the uploaded image is 53%')
+      st.markdown("<br>", unsafe_allow_html=True)
 
-  #uploaded_image_filename=uploaded_image_file.name
-  #imageobj=Image.open(uploaded_image_file)
-  imageobj=satellite_input_image_obj
-  #model_predict_result=modelpredict()
-  col1, col2 = st.columns([6,6], gap="small")
-  with col1:
-    st.markdown('### **Uploaded Image**',unsafe_allow_html=True)
-    st.image(imageobj,width=WIDTH)  #300 #640
-  with col2:
-    st.markdown('### **Predict uploaded image**',unsafe_allow_html=True)
-    st.image(predicted_image_from_input_obj, width=WIDTH) 
-  st.info('## The predicted model accuracy for the uploaded image is 53%')
-  st.markdown("<br>", unsafe_allow_html=True)
-  image_comparison(
-    img1=image_comparision_left_image_obj,
-    img2=image_comparision_right_image_obj,
-    label1="Original Image",
-    label2="Label Classes",
-    width=700,
-    starting_position=50,
-    show_labels=True,
-    make_responsive=True,
-    in_memory=True,
-)
-  st.image(image_with_class_label_obj, width=500) 
-  #st.plotly_chart(bar_chart_fig)
+      image_comparison(
+        img1=image_to_rgb(satellite_input_imageobj),
+        img2=image_to_rgb(model_predict_result),
+        label1="Original Satellite Image",
+        label2="Predicted Label Image",
+        width=700,
+        starting_position=50,
+        show_labels=True,
+        make_responsive=True,
+        in_memory=True,
+      )
+      st.markdown("<br>", unsafe_allow_html=True)
+
+      #st.image(predicted_image_with_class_label(model_predict_result), width=500)
+      
+      st.markdown("<br>", unsafe_allow_html=True) 
+
+      #st.plotly_chart(bar_chart_fig)
+
+def bar_chart_with_label():
+  pass
+
+if __name__ == "__main__":
+  main()     
