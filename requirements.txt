@@ -6,4 +6,4 @@ tensorflow
 gdown
 rasterio
 azure-storage-blob
-gdal
+
