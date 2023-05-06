@@ -1,4 +1,5 @@
-pygeos 
+pygeos
+gdal
 streamlit
 streamlit-image-comparison
 pillow
