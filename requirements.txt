@@ -1,4 +1,4 @@
-gdal
+pygeos 
 streamlit
 streamlit-image-comparison
 pillow
@@ -7,4 +7,3 @@ tensorflow
 gdown
 rasterio
 azure-storage-blob
-
