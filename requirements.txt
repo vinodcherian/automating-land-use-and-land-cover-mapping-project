@@ -1,4 +1,4 @@
---no-cache gdal[numpy]
+gdal[numpy]
 streamlit==1.22.0
 streamlit-image-comparison==0.0.4
 pillow==8.4.0
