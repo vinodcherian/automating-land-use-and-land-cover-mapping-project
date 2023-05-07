@@ -1,5 +1,2 @@
-libmysqlclient-dev
 python3-dev
 libgdal-dev
-libgdal1h
-libgdal1-dev
