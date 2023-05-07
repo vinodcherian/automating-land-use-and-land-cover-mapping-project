@@ -1,4 +1,4 @@
-gdal[numpy]
+--find-links=https://girder.github.io/large_image_wheels GDAL
 streamlit==1.22.0
 streamlit-image-comparison==0.0.4
 pillow==8.4.0
