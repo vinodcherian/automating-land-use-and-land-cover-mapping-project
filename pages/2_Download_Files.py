@@ -75,27 +75,27 @@ def main():
   st.write(DOWNLOAD_BUTTON_STYLE, unsafe_allow_html=True)
   BLOB_LIST=fetch_all_blob_files_list()
   with st.container():
-	option = st.selectbox('Please select the ROI region option to download the files : ',
-		('Full Camerron region','Adamawa','Central','East','Far North','Littoral','North','Northwest','South','Southwest','West'))
-	
-	if option=='Full Camerron region':
-		selected_value='Full_Predicted_Map_Data'
-	else:
-		selected_value=option
-	
-	st.button(label = 'Generate Download Links', key=None, on_click = call_button_function, args=(selected_value,), kwargs=None, disabled=False,)
-	
-	if st.session_state.SET_KEY:
-		if option in ['Full Camerron region','Adamawa','Central','East','Far North','Littoral','North','Northwest','South','Southwest','West']:
-		for key, value in BLOB_LIST.items():
-			if selected_value == str(key.split("/")[-2]):
-			html_tag = f'''<a href={value} class="button" style="vertical-align:middle" target="_blank" type="button" aria-pressed="true">
-					<span>{key.split("/")[-1]}</span></a>'''
-			st.markdown(html_tag, unsafe_allow_html=True)
-		else:
-		st.write("Please select a valid option")
-		st.session_state.SET_KEY=False
-
+    option = st.selectbox('Please select the ROI region option to download the files : ',
+        ('Full Camerron region','Adamawa','Central','East','Far North','Littoral','North','Northwest','South','Southwest','West'))
+    
+    if option=='Full Camerron region':
+        selected_value='Full_Predicted_Map_Data'
+    else:
+        selected_value=option
+    
+    st.button(label = 'Generate Download Links', key=None, on_click = call_button_function, args=(selected_value,), kwargs=None, disabled=False,)
+    
+    if st.session_state.SET_KEY:
+        if option in ['Full Camerron region','Adamawa','Central','East','Far North','Littoral','North','Northwest','South','Southwest','West']:
+            for key, value in BLOB_LIST.items():
+                if selected_value == str(key.split("/")[-2]):
+                    html_tag = f'''<a href={value} class="button" style="vertical-align:middle" target="_blank" type="button" aria-pressed="true">
+                            <span>{key.split("/")[-1]}</span></a>'''
+                    st.markdown(html_tag, unsafe_allow_html=True)
+        else:
+            st.write("Please select a valid option")
+        st.session_state.SET_KEY=False
+    
     
 if __name__ == "__main__":
   main()  
