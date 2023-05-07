@@ -1,5 +1,4 @@
-gdal-bin
+libmysqlclient-dev
 libgdal-dev
-libproj-dev
-libgeos-dev
-proj-bin
+libgdal1h
+libgdal1-dev
