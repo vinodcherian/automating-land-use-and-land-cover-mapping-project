@@ -1,3 +1,2 @@
 python3-dev
 libgdal-dev
-libgdal1h
