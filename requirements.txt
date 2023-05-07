@@ -1,7 +1,6 @@
-numpy==1.22.2
+--no-cache gdal[numpy]
 streamlit==1.22.0
 streamlit-image-comparison==0.0.4
-gdal==3.3.2
 pillow==8.4.0
 matplotlib==3.7.1
 tensorflow==2.12.0
