@@ -35,11 +35,13 @@ HEADER_STYLE=f"""<style>
 	    visibility: hidden;
 	    top: -50px;
 	    }}
-            [data-testid="stImage"]{{
+            #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div > div > div
+	    {{
             height: 300px;
             width: 300px;
             }}
-            [data-testid="stImage"] > img{{
+            #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div > div > div > img
+	    {{
             height: 300px;
             width: 300px;
             padding-top: 40%;
