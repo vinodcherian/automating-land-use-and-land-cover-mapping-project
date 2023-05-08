@@ -82,6 +82,10 @@ def model_result(model, gdal_image_array):
 def image_to_rgb(predicted_image_array):
   return Image.fromarray(np.uint8(predicted_image_array.argmax(axis=-1)))
 
+def convert_8_band_to_4_band(predicted_image_band):
+  combined_dstack=np.dstack((predicted_image_band[:, :, 0], predicted_image_band[:, :, 1], predicted_image_band[:, :, 2], predicted_image_band[:, :, 3] ))
+  return combined_dstack
+
 def predicted_image_with_class_label(predicted_image_array):
   # Get predicted class indices from one-hot encoded array
   predicted_class_indices = np.argmax(predicted_image_array, axis=-1)
