@@ -1,4 +1,5 @@
 python3-dev
 g++
+gdal-bin
 libgdal-dev
 proj-bin
