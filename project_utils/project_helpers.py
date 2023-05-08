@@ -114,7 +114,7 @@ def predicted_image_with_class_label(predicted_image_array):
              80:'Permanent water bodies',90:'Herbaceous wetland', 95:'Mangroves', 100: 'Moss and lichen'}
 
   
-  return 
+#  return 
 
 
   # Open image and label
