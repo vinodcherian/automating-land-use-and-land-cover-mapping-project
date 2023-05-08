@@ -59,7 +59,7 @@ def main():
       st.markdown("<br>", unsafe_allow_html=True)
 
       image_comparison(
-        img1=image_to_rgb(satellite_input_imageobj),
+        img1=satellite_input_imageobj,
         img2=image_to_rgb(predicted_output_imageobj),
         label1="Original Satellite Image",
         label2="Predicted Label Image",
