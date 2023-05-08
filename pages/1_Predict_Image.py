@@ -47,19 +47,20 @@ def main():
       #satellite_input_imageobj=np.array(uploaded_file.getvalue())#.decode("utf-8").read() #Image.open(uploaded_file)
       satellite_input_imageobj=gdal_uploaded_image_array(uploaded_file)
       model_predict_result=modelpredict(model_obj,satellite_input_imageobj)
+      predicted_output_imageobj=convert_8_band_to_4_band(model_predict_result)
       col1, col2 = st.columns([6,6], gap="small")
       with col1:
         st.markdown('### **Uploaded Satellite Image**',unsafe_allow_html=True)
         st.image(satellite_input_imageobj,width=WIDTH)  #300 #640
       with col2:
         st.markdown('### **Predicted Image**',unsafe_allow_html=True)
-        st.image(image_to_rgb(model_predict_result), width=WIDTH) 
+        st.image(predicted_output_imageobj, width=WIDTH) 
       #st.info('## The predicted model accuracy for the uploaded image is 53%')
       st.markdown("<br>", unsafe_allow_html=True)
 
       image_comparison(
         img1=image_to_rgb(satellite_input_imageobj),
-        img2=image_to_rgb(model_predict_result),
+        img2=image_to_rgb(predicted_output_imageobj),
         label1="Original Satellite Image",
         label2="Predicted Label Image",
         width=700,
