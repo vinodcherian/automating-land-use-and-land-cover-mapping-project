@@ -5,7 +5,8 @@ import io
 import numpy as np
 import pandas as pd
 import gdown
-from osgeo import gdal
+#from osgeo import gdal
+import rasterio
 import matplotlib
 import matplotlib.pyplot as plt
 
@@ -28,16 +29,21 @@ def fetch_model(modelpath):
   return model
 
 def gdal_uploaded_image_array(upload_image_obj):
-  data_array = upload_image_obj.read()
-  drv = gdal.GetDriverByName("GTiff")
-  gdal_image = drv.Create("256.tif", 256, 256, 4, gdal.GDT_Byte)
-  gdal_image = None
-  gdal.FileFromMemBuffer("/vsimem/256.tif", data_array)
-  gdal_image = gdal.Open("/vsimem/256.tif")
-  gdal_image_array = np.transpose(gdal_image.ReadAsArray(), (1, 2, 0))
-  gdal_image = None
-  if os.path.exists(os.path.abspath("256.tif")):
-    os.remove(os.path.abspath("256.tif"))
+  #data_array = upload_image_obj.read()
+  #drv = gdal.GetDriverByName("GTiff")
+  #gdal_image = drv.Create("256.tif", 256, 256, 4, gdal.GDT_Byte)
+  #gdal_image = None
+  #gdal.FileFromMemBuffer("/vsimem/256.tif", data_array)
+  #gdal_image = gdal.Open("/vsimem/256.tif")
+  #gdal_image_array = np.transpose(gdal_image.ReadAsArray(), (1, 2, 0))
+  #gdal_image = None
+  #if os.path.exists(os.path.abspath("256.tif")):
+  #  os.remove(os.path.abspath("256.tif"))
+  save_path='./Model/temp.tif'
+  with open(save_path, mode='wb') as w:
+    w.write(upload_image_obj.getvalue())    
+  ds_raster = rasterio.open(save_path)
+  gdal_image_array = np.transpose(ds_raster.read(), (1, 2, 0))
   return gdal_image_array
 
 def model_result(model, gdal_image_array):
