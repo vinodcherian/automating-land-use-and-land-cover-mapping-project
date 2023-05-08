@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import base64
 from streamlit_image_comparison import image_comparison
 from project_utils.page_layout_helper import  main_header
-from project_utils.project_helpers import gdal_uploaded_image_array, fetch_model, image_to_rgb, model_result #, predicted_image_with_class_label
+from project_utils.project_helpers import gdal_uploaded_image_array, fetch_model, image_to_rgb, model_result, convert_8_band_to_4_band #, predicted_image_with_class_label
  
 ALLOWED_EXTENSIONS = [".tiff"]
 
