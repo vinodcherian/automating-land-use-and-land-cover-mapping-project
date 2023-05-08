@@ -9,6 +9,7 @@ import gdown
 import rasterio
 import matplotlib
 import matplotlib.pyplot as plt
+import streamlit as st
 
 # Set the patch size and stride
 PATCH_SIZE = 256
@@ -43,6 +44,7 @@ def gdal_uploaded_image_array(upload_image_obj):
   with open(save_path, mode='wb') as w:
     w.write(upload_image_obj.getvalue())    
   ds_raster = rasterio.open(save_path)
+  st.header(str(type(ds_raster)) + "  " + str(ds_raster.bounds))
   gdal_image_array = np.transpose(ds_raster.read(), (1, 2, 0))
   return gdal_image_array
 
