@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import base64
 from streamlit_image_comparison import image_comparison
 from project_utils.page_layout_helper import  main_header
-from project_utils.project_helpers import gdal_uploaded_image_array, fetch_model, image_to_rgb, model_result, convert_8_band_to_4_band #, predicted_image_with_class_label
+from project_utils.project_helpers import gdal_uploaded_image_array, fetch_model, image_to_rgb, model_result, convert_8_band_to_4_band, predicted_image_with_class_label_plot_style1, predicted_image_with_class_label_plot_style2
  
 ALLOWED_EXTENSIONS = [".tiff"]
 
@@ -74,11 +74,10 @@ def main():
       #st.image(predicted_image_with_class_label(model_predict_result), width=500)
       
       st.markdown("<br>", unsafe_allow_html=True) 
-
-      #st.plotly_chart(bar_chart_fig)
-
-def bar_chart_with_label():
-  pass
+      st.pyplot(predicted_image_with_class_label_plot_style1(model_predict_result))
+      #st.plotly_chart(predicted_image_with_class_label(model_predict_result))
+      st.markdown("<br>", unsafe_allow_html=True) 
+      st.pyplot(predicted_image_with_class_label_plot_style2(model_predict_result))
 
 if __name__ == "__main__":
   main()     
