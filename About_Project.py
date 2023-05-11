@@ -14,12 +14,12 @@ def active_contributors():
 '''
 
   ACTIVE_CONTRIBUTORS_PAGE_MEMBERS_LIST='''
-| Task Name | Active Contributors |
-|--|--|
-| Data Collection and Selection | - |
-| Data Preprocessing and Visualization | - |
-| Model Development and Training | - |
-| Model Deployment and Dashboard | - |
+| Task Name | Task Leader | Active Contributors |
+|--|--|--|
+| Data Collection and Selection | - | - |
+| Data Preprocessing and Visualization | - | - |
+| Model Development and Training | - | - |
+| Model Deployment and Dashboard | - | - |
 '''
 
   with st.container():
