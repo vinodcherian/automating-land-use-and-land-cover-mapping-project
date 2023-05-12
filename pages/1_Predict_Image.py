@@ -58,17 +58,17 @@ def main():
       #st.info('## The predicted model accuracy for the uploaded image is 53%')
       st.markdown("<br>", unsafe_allow_html=True)
 
-      #image_comparison(
-      # img1=convert_to_rgb(satellite_input_imageobj),
-      # img2=convert_to_rgb(model_predict_result),
-      # label1="Original Satellite Image",
-      # label2="Predicted Label Image",
-      # width=700,
-      # starting_position=50,
-      # show_labels=True,
-      # make_responsive=True,
-      # in_memory=True,
-      #)
+      image_comparison(
+       img1=convert_to_rgb(satellite_input_imageobj),
+       img2=convert_to_rgb(model_predict_result),
+       label1="Original Satellite Image",
+       label2="Predicted Label Image",
+       width=700,
+       starting_position=50,
+       show_labels=True,
+       make_responsive=True,
+       in_memory=True,
+      )
       st.markdown("<br>", unsafe_allow_html=True)
 
       #st.image(predicted_image_with_class_label(model_predict_result), width=500)
