@@ -62,9 +62,10 @@ import geemap.foliumap as geemap
 import geopandas as gpd
 
 AOI_GEOJSON = st.secrets["cameroon_aoi_bbx"] 
-predicted_image_asset_path = st.secrets["predicted_image_asset"]
-json_data = st.secrets["google_map_auth_json_data"]
-json_object = json.loads(json_data, strict=False)
+PREDICTED_IMAGE_ASSET_PATH = st.secrets["predicted_image_asset"]
+JSON_DATA = st.secrets["google_map_auth_json_data"]
+
+json_object = json.loads(JSON_DATA, strict=False)
 json_object = json.dumps(json_object)
 os.environ['EARTHENGINE_TOKEN']=json_object
 geemap.ee_initialize(token_name='EARTHENGINE_TOKEN', auth_mode='notebook', service_account=True)
