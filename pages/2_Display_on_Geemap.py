@@ -61,9 +61,9 @@ import streamlit as st
 import geemap.foliumap as geemap
 import geopandas as gpd
 
-AOI_GEOJSON= st.secrets("cameroon_aoi_bbx") 
-predicted_image_asset_path=st.secrets("predicted_image_asset")
-json_data = st.secrets("google_map_auth_json_data")
+AOI_GEOJSON = st.secrets["cameroon_aoi_bbx"] 
+predicted_image_asset_path = st.secrets["predicted_image_asset"]
+json_data = st.secrets["google_map_auth_json_data"]
 json_object = json.loads(json_data, strict=False)
 json_object = json.dumps(json_object)
 os.environ['EARTHENGINE_TOKEN']=json_object
