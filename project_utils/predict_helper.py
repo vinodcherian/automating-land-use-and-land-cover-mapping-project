@@ -113,7 +113,8 @@ def predicted_image_with_class_label_plot_style1(predicted_image_array, fig_widt
   fig = plt.figure(figsize = (fig_width, fig_height))
   figplot = fig.add_subplot(1, 1, 1)
   values = np.unique(predicted_class_indices_mapped.ravel())
-  im = plt.imshow(predicted_class_indices_mapped[:, :, 0])
+  #im = plt.imshow(predicted_class_indices_mapped[:, :, 0])
+  im = plt.imshow(predicted_class_indices_mapped)
   figplot.set_title("Predicted Image Label Classes with Color Codes : ")
 
   patches = [mpatches.Patch(color = LABEL_CLASS_WITH_COLOR[i]["label_color"], label = LABEL_CLASS_WITH_COLOR[i]["label_class"]) for i in LABEL_CLASS_WITH_COLOR]
