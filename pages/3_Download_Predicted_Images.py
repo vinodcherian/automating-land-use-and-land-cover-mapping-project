@@ -90,7 +90,8 @@ def main():
             for key, value in BLOB_LIST.items():
                 if selected_value == str(key.split("/")[-2]):
                     #html_tag = f'''<a href={value} class="button" style="vertical-align:middle" target="_blank" type="button" aria-pressed="true"><span>{key.split("/")[-1]}</span></a>'''
-                    html_tag = f'''<a href={value} target="_blank" aria-pressed="true"><span>{key.split("/")[-1]}</span></a>'''
+                    html_tag = f'<a href={value} target="_blank" aria-pressed="true"><span>{key.split("/")[-1]}</span></a>'
+                    
                     st.markdown(html_tag, unsafe_allow_html=True)
         else:
             st.write("Please select a valid option")
