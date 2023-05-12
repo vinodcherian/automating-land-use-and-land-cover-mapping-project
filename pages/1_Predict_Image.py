@@ -60,7 +60,7 @@ def main():
 
       image_comparison(
        img1=image_to_rgb(satellite_input_imageobj),#satellite_input_imageobj,
-       img2=convert_to_rgb(model_predict_result),
+       img2=image_to_rgb(model_predict_result),
        label1="Original Satellite Image",
        label2="Predicted Label Image",
        width=700,
