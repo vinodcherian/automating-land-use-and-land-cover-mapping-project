@@ -16,10 +16,10 @@ def active_contributors():
   ACTIVE_CONTRIBUTORS_PAGE_MEMBERS_LIST='''
 | Task Name | Active Contributors |
 |--|--|
-| Data Collection and Selection | Abhi Agarwal, Akhil Chibber, Noelia, Joseph N. Moturi, Rayy Benhin, Deepali, Daria Akhbari, Kaushik Roy |
-| Data Preprocessing and Visualization | Akhil Chibber, Noelia, Joseph N. Moturi, Rayy Benhin, Deepali, Daria Akhbari, Kaushik Roy |
-| Model Development and Training | Akhil Chibber, Noelia, Joseph N. Moturi, Rayy Benhin, Deepali, Daria Akhbari, Kaushik Roy |
-| Model Deployment and Dashboard | Noelia, Joseph N. Moturi, Kaushik Roy, Getrude Obwoge, Sanjiv, Vinod Cherian |
+| Data Collection and Selection | Abhi Agarwal, Akhil Chibber, Daria Akhbari, Deepali, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin |
+| Data Preprocessing and Visualization | Akhil Chibber, Daria Akhbari, Deepali, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin |
+| Model Development and Training | Akhil Chibber, Daria Akhbari, Deepali, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin |
+| Model Deployment and Dashboard | Getrude Obwoge, Joseph N. Moturi, Kaushik Roy, Noelia, Sanjiv, Vinod Cherian |
 '''
 
   with st.container():
