@@ -60,7 +60,7 @@ def main():
 
       image_comparison(
        img1=Image.fromarray(np.uint8((satellite_input_imageobj / satellite_input_imageobj.max()) * 255.)),#image_to_rgb(satellite_input_imageobj),#satellite_input_imageobj,
-       img2=image_to_rgb(predicted_output_imageobj),#model_predict_result),
+       img2=Image.fromarray(np.uint8((predicted_output_imageobj / predicted_output_imageobj.max()) * 255.)),#image_to_rgb(predicted_output_imageobj),#model_predict_result),
        label1="Original Satellite Image (8 bit)",
        label2="Predicted Label Image (8 bit)",
        width=700,
