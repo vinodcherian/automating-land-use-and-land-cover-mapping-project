@@ -8,13 +8,13 @@ from project_utils.page_layout_helper import set_page_settings, get_page_title, 
 
 def active_contributors():
   ACTIVE_CONTRIBUTORS_PAGE_CHAPTERLEAD='''
-| Chapter Name | Lead Name |
+| Chapter Name | Project Coordinator Name |
 |--|--|
 | Cameroon Chapter Leads | Younkap Nina Duplex |
 '''
   
   ACTIVE_CONTRIBUTORS_PAGE_TASKLEAD='''
-| Task Name | Lead Name |
+| Task Name | Task Lead Name |
 |--|--|
 | Data Selection | Daria Akhbari |
 | Data Collection | Kaushik Roy |
