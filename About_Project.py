@@ -16,10 +16,11 @@ def active_contributors():
   ACTIVE_CONTRIBUTORS_PAGE_TASKLEAD='''
 | Task Name | Lead Name |
 |--|--|
-| Data Collection and Selection | Daria Akhbari |
+| Data Selection | Daria Akhbari |
+| Data Collection | Kaushik Roy |
 | Data Preprocessing and Visualization | Noelia | 
 | Model Development and Training | Akhil Chibber |
-| Model Deployment and Dashboard | Vinod Cherian |
+| Deployment and Dashboard | Vinod Cherian |
 '''
 
   ACTIVE_CONTRIBUTORS_PAGE_MEMBERS_LIST='''
