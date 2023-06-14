@@ -12,18 +12,26 @@ def active_contributors():
 |--|--|
 | Cameroon Chapter Leads | Younkap Nina Duplex |
 '''
+  
+  ACTIVE_CONTRIBUTORS_PAGE_TASKLEAD='''
+| Task Name | Lead Name |
+|--|--|
+| Data Collection and Selection | Daria Akhbari |
+| Data Preprocessing and Visualization | Noelia | 
+| Model Development and Training | Akhil Chibber |
+| Model Deployment and Dashboard | Vinod Cherian |
+'''
 
   ACTIVE_CONTRIBUTORS_PAGE_MEMBERS_LIST='''
-| Task Name | Task Leader | Active Contributors |
-|--|--|--|
-| Data Collection and Selection | Daria Akhbari | Abhi Agarwal, Akhil Chibber, Daria Akhbari, Deepali, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin |
-| Data Preprocessing and Visualization | Noelia | Akhil Chibber, Daria Akhbari, Deepali, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin |
-| Model Development and Training | Akhil Chibber | Akhil Chibber, Daria Akhbari, Deepali, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin |
-| Model Deployment and Dashboard | Vinod Cherian | Getrude Obwoge, Joseph N. Moturi, Kaushik Roy, Noelia, Sanjiv, Vinod Cherian |
+| Active Contributors |
+|--|
+| Abhi Agarwal, Akhil Chibber, Daria Akhbari, Deepali, Deepanshu Rajput, Elias Dzobo, Getrude Obwoge, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin, Sanjiv, Sugandaram M, Vinod Cherian, Yaninthé |
 '''
 
   with st.container():
     st.markdown(ACTIVE_CONTRIBUTORS_PAGE_CHAPTERLEAD, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(ACTIVE_CONTRIBUTORS_PAGE_TASKLEAD, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(ACTIVE_CONTRIBUTORS_PAGE_MEMBERS_LIST, unsafe_allow_html=True)
 
