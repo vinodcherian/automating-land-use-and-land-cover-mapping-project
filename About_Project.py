@@ -23,7 +23,7 @@ def active_contributors():
 '''
 
   ACTIVE_CONTRIBUTORS_PAGE_MEMBERS_LIST='''
-| Active Contributors |
+| Active Contributors Names in alphabetical (a-z) orders |
 |--|
 | Abhi Agarwal, Akhil Chibber, Daria Akhbari, Deepali, Deepanshu Rajput, Elias Dzobo, Getrude Obwoge, Joseph N. Moturi, Kaushik Roy, Noelia, Rayy Benhin, Sanjiv, Sugandaram M, Vinod Cherian, Yaninthé |
 '''
