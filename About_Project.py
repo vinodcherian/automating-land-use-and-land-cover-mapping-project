@@ -10,7 +10,7 @@ def active_contributors():
   ACTIVE_CONTRIBUTORS_PAGE_CHAPTERLEAD='''
 | Chapter Name | Project Coordinator Name |
 |--|--|
-| Cameroon Chapter Leads | YOUNKAP NINA Duplex |
+| Cameroon Chapter Lead | YOUNKAP NINA Duplex |
 '''
   
   ACTIVE_CONTRIBUTORS_PAGE_TASKLEAD='''
