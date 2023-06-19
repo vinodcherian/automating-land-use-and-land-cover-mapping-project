@@ -31,7 +31,10 @@ def set_page_title():
 
 
 HEADER_STYLE=f"""<style>
-	   
+	    [data-testid="stToolbar"]{{
+	    visibility: hidden;
+	    top: -50px;
+	    }}
             #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div > div > div
 	    {{
             height: 300px;
