@@ -60,6 +60,7 @@ import json
 import streamlit as st
 import geemap.foliumap as geemap
 import geopandas as gpd
+from project_utils.page_layout_helper import  main_header
 main_header()
 AOI_GEOJSON = st.secrets["cameroon_aoi_bbx"] 
 PREDICTED_IMAGE_ASSET_PATH = st.secrets["predicted_image_asset"]
