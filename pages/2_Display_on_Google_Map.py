@@ -60,7 +60,7 @@ import json
 import streamlit as st
 import geemap.foliumap as geemap
 import geopandas as gpd
-
+main_header()
 AOI_GEOJSON = st.secrets["cameroon_aoi_bbx"] 
 PREDICTED_IMAGE_ASSET_PATH = st.secrets["predicted_image_asset"]
 JSON_DATA = st.secrets["google_map_auth_json_data"]
